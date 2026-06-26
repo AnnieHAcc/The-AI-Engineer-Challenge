@@ -56,7 +56,12 @@ lsof -ti:8000 | xargs kill -9
 - **Request Body**:
 ```json
 {
-    "message": "string"
+    "message": "string",
+    "system_prompt": "optional string — overrides the default mental coach persona",
+    "history": [
+        { "role": "user", "content": "previous user message" },
+        { "role": "assistant", "content": "previous assistant reply" }
+    ]
 }
 ```
 - **Response**: JSON object with the AI's reply:

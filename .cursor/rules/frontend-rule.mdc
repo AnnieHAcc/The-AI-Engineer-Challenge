@@ -5,9 +5,61 @@ alwaysApply: false
 ---
 ### Rules for Frontend
 
-- You must pay attention to visual clarity and contrast. Do not place white text on a white background.
-- You must ensure the UX is pleasant. Boxes should grow to fit their contents, etc. 
-- When asking the user for sensitive information - you must use password style text-entry boxes in the UI.
-- You should use Next.js as it works best with Vercel. 
-- This frontend will ultimately be deployed on Vercel, but it should be possible to test locally. 
-- Always provide users with a way to run the created UI once you have created it.
+Visual aesthetic:
+- Overall vibe: Y2K pop star energy, glossy, confident, fun, feminine, and high-impact.
+- Inspiration: early-2000s girl group visuals, pop concert graphics, magazine covers, rhinestones, metallics, lip gloss, and playful fashion branding.
+- Keep it modern and usable, not cluttered or costume-like.
+
+Color palette:
+- Base: soft white, pale pink, blush, lavender, icy blue, and silver.
+- Accent colors: hot pink, bubblegum pink, chrome silver, electric blue, and glossy black.
+- Use gradients sparingly, especially pink-to-lavender, blue-to-silver, or glossy candy-like gradients.
+- Avoid muddy colors, beige-heavy palettes, or overly muted tones.
+
+Typography:
+- Use clean sans-serif fonts as the base.
+- Headings can be bold, rounded, slightly playful, or editorial.
+- Body text should stay highly readable and modern.
+- Use occasional all-caps labels for pop-magazine energy.
+- Avoid overly childish, handwritten, or novelty fonts.
+
+UI components:
+- Use rounded corners throughout.
+- Buttons should feel glossy, bold, and clickable.
+- Primary CTAs should use hot pink, electric blue, or chrome-inspired gradients.
+- Cards should feel polished, with soft shadows, subtle borders, and optional glossy highlights.
+- Inputs should be clean with rounded corners, subtle outlines, and focused states using pink or electric blue.
+
+Layout:
+- Clean, modern, minimal structure with playful accents.
+- Use generous spacing and clear hierarchy.
+- Avoid overcrowding the UI with too many decorations.
+- Use asymmetry and sticker-like accents only when they improve the vibe.
+- Keep everything responsive and mobile-friendly.
+
+Decorative elements:
+- Use subtle Y2K-inspired details: stars, sparkles, chrome effects, hearts, stickers, glossy highlights, lens flares, magazine-style badges, and rounded pill shapes.
+- Decorative elements should support the product, not distract from usability.
+- Use animation lightly: shimmer, hover glow, soft bounce, sparkle, or glossy transitions.
+
+Imagery and iconography:
+- Icons should be rounded, playful, and clean.
+- Use pop-star, backstage, glam, music-video, or fashion-magazine energy where relevant.
+- Avoid directly copying any celebrity, album, brand, or copyrighted visual identity.
+- Capture the feeling of early-2000s pop culture without recreating specific Spice Girls or Zara Larsson assets.
+
+Interaction design:
+- Hover states should feel energetic: glow, lift, shimmer, or color shift.
+- Transitions should be smooth, quick, and polished.
+- Microinteractions can feel playful but should not slow the user down.
+
+Implementation preferences:
+- Prioritize accessibility and contrast.
+- Keep components reusable and consistent.
+- Use CSS variables or theme tokens for colors, spacing, radius, shadows, and typography.
+- Avoid hardcoding repeated visual values.
+- Maintain a clean component structure.
+- Do not overuse animations or heavy visual effects.
+
+Overall rule:
+The UI should feel like a modern web app dressed in glossy 2000s girl-pop styling: confident, sparkly, feminine, energetic, and polished — fun without sacrificing clarity or usability.

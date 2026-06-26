@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+:root {
+  /* Base palette — soft Y2K pop tones */
+  --color-soft-white: #fffafd;
+  --color-pale-pink: #ffe8f3;
+  --color-blush: #ffd6ea;
+  --color-lavender: #e8dcff;
+  --color-icy-blue: #dceeff;
+  --color-silver: #e8e8f0;
+
+  /* Accent palette */
+  --color-hot-pink: #ff2d8a;
+  --color-bubblegum: #ff6eb4;
+  --color-chrome: #c8d0e8;
+  --color-electric-blue: #3b82f6;
+  --color-glossy-black: #1a1020;
+  --color-muted: #7a6b82;
+
+  /* Semantic tokens */
+  --background: var(--color-soft-white);
+  --foreground: var(--color-glossy-black);
+  --color-border: rgb(255 45 138 / 12%);
+
+  /* Gradients */
+  --gradient-page: linear-gradient(
+    145deg,
+    var(--color-pale-pink) 0%,
+    var(--color-soft-white) 35%,
+    var(--color-icy-blue) 100%
+  );
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-hot-pink) 0%,
+    var(--color-bubblegum) 45%,
+    var(--color-electric-blue) 100%
+  );
+  --gradient-sparkle: radial-gradient(
+    circle,
+    var(--color-bubblegum) 0%,
+    transparent 70%
+  );
+
+  /* Layout tokens */
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --shadow-card: 0 8px 32px rgb(255 45 138 / 8%), 0 2px 8px rgb(59 130 246 / 6%);
+  --shadow-glow: 0 0 20px rgb(255 45 138 / 25%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-outfit);
+}
+
+body {
+  background: var(--gradient-page);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-nunito), system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: var(--font-outfit), system-ui, sans-serif;
+}
+
+/* Glossy primary button */
+.btn-primary {
+  border-radius: 9999px;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-glow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 0 28px rgb(255 45 138 / 35%);
+  filter: brightness(1.05);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Rounded glossy inputs */
+.input-glossy {
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--color-border);
+  background: white;
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-glossy:focus {
+  border-color: var(--color-hot-pink);
+  box-shadow: 0 0 0 3px rgb(255 45 138 / 15%);
+}
+
+/* Chat bubbles */
+.bubble-user {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-glow);
+}
+
+.bubble-assistant {
+  background: white;
+  border: 1px solid var(--color-border);
+  color: var(--color-glossy-black);
+}
+
+/* Magazine-style badge */
+.badge-pop {
+  border-radius: 9999px;
+  background: var(--color-lavender);
+  color: var(--color-hot-pink);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.75rem;
+  text-transform: uppercase;
+}
+
+/* Subtle sparkle animation */
+.sparkle {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}

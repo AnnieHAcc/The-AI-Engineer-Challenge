@@ -19,26 +19,51 @@ app.add_middleware(
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+DEFAULT_SYSTEM_PROMPT = "You are a supportive mental coach."
+
+
+class ChatMessage(BaseModel):
+    role: str
+    content: str
+
+
 class ChatRequest(BaseModel):
     message: str
+    system_prompt: str | None = None
+    history: list[ChatMessage] | None = None
+
 
 @app.get("/")
 def root():
     return {"status": "ok"}
 
+
+@app.get("/api/health")
+def health():
+    return {"status": "ok"}
+
+
 @app.post("/api/chat")
 def chat(request: ChatRequest):
     if not os.getenv("OPENAI_API_KEY"):
         raise HTTPException(status_code=500, detail="OPENAI_API_KEY not configured")
-    
+
     try:
-        user_message = request.message
+        system_prompt = request.system_prompt or DEFAULT_SYSTEM_PROMPT
+        messages: list[dict[str, str]] = [
+            {"role": "system", "content": system_prompt}
+        ]
+
+        if request.history:
+            for msg in request.history:
+                if msg.role in ("user", "assistant"):
+                    messages.append({"role": msg.role, "content": msg.content})
+
+        messages.append({"role": "user", "content": request.message})
+
         response = client.chat.completions.create(
             model="gpt-5",
-            messages=[
-                {"role": "system", "content": "You are a supportive mental coach."},
-                {"role": "user", "content": user_message}
-            ]
+            messages=messages,
         )
         return {"reply": response.choices[0].message.content}
     except Exception as e:
